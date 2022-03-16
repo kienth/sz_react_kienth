@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 /* base styles */
 * {
   margin: 0;
-  font-family: "Quicksand";
-  color: #333;
+  font-family: "Poppins";
+  color: black;
 }
 .navbar {
   padding: 20px;
@@ -13,7 +13,6 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
   color: #313131;
@@ -38,22 +37,19 @@
   color: #A749FF;
 }
 .content {
-  max-width: 600px;
-  margin: 40px auto;
+  margin: 10px auto;
   padding: 20px;
+  background-color: #DBFFFB;
 }
 
-/* blog previews / list */
-.blog-preview {
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+.slider {
+  max-width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  font-size: 30px;
 }
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-}
-.blog-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
+
+.slider .sliderText {
+  margin-top: 100px;
+  width: 100%;
 }
