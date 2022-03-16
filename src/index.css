@@ -5,6 +5,7 @@
   margin: 0;
   font-family: "Poppins";
   color: black;
+  text-decoration: none;
 }
 .navbar {
   padding: 20px;
@@ -52,4 +53,8 @@
 .slider .sliderText {
   margin-top: 100px;
   width: 100%;
+}
+
+.home {
+  padding: 100px 0;
 }

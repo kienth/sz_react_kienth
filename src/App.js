@@ -6,8 +6,8 @@ import Demo from './Demo';
 function App() {
   return (
     <div className="App">
-      <Demo />
-      {/* <Navbar /> */}
+      {/* <Demo /> */}
+      <Navbar />
       <div className="content">
         <Home />
       </div>
