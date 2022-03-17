@@ -1,16 +1,15 @@
-import Navbar from './Navbar';
-import Home from './Home';
-import Demo from './Demo';
-
+import Navbar from './partial/Navbar';
+import UpperNavbar from './partial/UpperNavbar';
+import Slider from './home/Slider';
+import Footer from './partial/Footer'
 
 function App() {
   return (
     <div className="App">
-      {/* <Demo /> */}
+      <UpperNavbar />
       <Navbar />
-      <div className="content">
-        <Home />
-      </div>
+      <Slider />
+      <Footer />
     </div>
   );
 }
