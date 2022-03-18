@@ -12,7 +12,7 @@ const UpperNavbar = () => {
                     <Text>Call Us 3965410</Text>
                 </SpaceBetween>
                 <FlexEnd>
-                <Text>Free delivery on order over</Text><Text red>$200</Text>
+                <Text>Free delivery on order over</Text><Text color="red" margin="0 0 0 5px">$200</Text>
                 </FlexEnd>
             </SpaceBetween>
         </Container>

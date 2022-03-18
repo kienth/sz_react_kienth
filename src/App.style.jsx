@@ -19,6 +19,13 @@ export const FlexEnd = styled.div`
     justify-content: flex-end;
 `;
 
+export const FlexDirection = styled.div`
+    display: flex;
+    gap: ${props => props.gap || "0"};
+    flex-direction: ${props => props.flexDirection || "row"};
+    margin: ${props => props.margin || "auto"};
+`;
+
 
 // Border
 export const BorderBottom = styled.div`
@@ -50,8 +57,10 @@ export const ATag = styled.a`
 `;
 
 export const Text = styled.p`
-    color: ${props => props.red ? "red" : ""};
-    font-size: 14px;
-    margin: 0 0 0 5px;
+    color: ${props => props.color || ""};
+    font-size: ${props => props.fontSize || ""};
+    margin: ${props => props.margin || "0"};
+    text-transform: ${props => props.textTransform || "none"};
+    font-weight: ${props => props.fontWeight || ""};
 `;
 

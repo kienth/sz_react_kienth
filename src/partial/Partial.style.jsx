@@ -6,12 +6,7 @@ export const PartialNavbar = styled.div`
 `;
 
 export const PartialFooter = styled.div`
-    height: 200px;
-    display: flex;
-    max-width: 100%;
-    justify-content: space-between;
-    margin: 0;
-    padding: 7%;
+    padding: 7% 0;
     background-color: #F6F6F8;
 `;
 
@@ -26,7 +21,6 @@ export const PartialFooterSubHeader = styled.span`
     font-size: 16px;
     font-weight: 600;
     color: #313131;
-    line-height: 1;
 `;
 
 export const PartialFooterLink = styled.div`
