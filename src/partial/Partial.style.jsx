@@ -1,54 +1,8 @@
 import styled from 'styled-components';
 
-export const PartialUpperNavbar = styled.div`
-    display: flex;
-    justify-content: space-between;
-    max-width: 100%;
-    padding: 10px 5%;
-    border-bottom: 1px solid #D5D4D4;
-`;
-
-export const PartialUpperLeft = styled.div`
-    display: flex;
-    justify-content: space-between;
-    border-left: 1px solid #848181;
-    height: 20px;
-    vertical-align: center;
-`;
-
 export const PartialNavbar = styled.div`
-    display: flex;
-    justify-content: space-between;
     max-width: 100%;
-    padding: 30px 5%;
-    background-color: color;
-`;
-
-export const PartialLink = styled.div`
-    display: flex;
-    max-width: 100%;
-    justify-content: space-evenly;
-    a {
-        padding: 0 20px;
-        font-size: 15px;
-        color: #555252;
-        font-weight: 500;
-        letter-spacing: 0.8px;
-        position: relative;
-        text-decoration: none;
-    }
-    a:hover {
-        color: #AF49FF;
-    }
-    span {
-        padding: 0 5px;
-        font-size: 15px;
-        color: #555252;
-        font-weight: 500;
-        letter-spacing: 0.8px;
-        position: relative;
-        text-decoration: none;
-    }
+    padding: 20px 0;
 `;
 
 export const PartialFooter = styled.div`
