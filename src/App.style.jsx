@@ -46,11 +46,9 @@ export const BorderVertical = styled.div`
 
 // Other Default
 export const ATag = styled.a`
-    text-decoration: none;
     font-size: 14px;
     color: #555252;
     font-weight: 400;
-    position: relative;
     &:hover {
         color: ${props => props.default ? "black" : "#AF49FF"};
     }

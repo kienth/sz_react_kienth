@@ -1,5 +1,5 @@
-import { Container, SpaceBetween, FlexDirection, Text, ATag } from "../App.style";
-import { PartialFooter, PartialFooterSub, PartialFooterSubHeader, PartialFooterLink, PartialFooterInput } from "./Partial.style";
+import { Container, SpaceBetween, FlexDirection, Text, ATag, BorderBottom } from "../App.style";
+import { PartialFooter, PartialFooterInput } from "./Partial.style";
 
 const Footer = () => {
     return ( 
@@ -45,37 +45,36 @@ const Footer = () => {
                             FAQs
                         </ATag>
                     </FlexDirection>
-                    <PartialFooterSub>
-                        <PartialFooterSubHeader>
+                    <FlexDirection flexDirection="column" margin="auto 0" gap="15px">
+                        <Text textTransform="uppercase" fontWeight="600" fontSize="16px" color="#313131">
                             Follow Us
-                        </PartialFooterSubHeader>
-                        <PartialFooterLink>
-                            <a href="#"> Facebook</a>
-                        </PartialFooterLink>
-                        <PartialFooterLink>
-                            <a href="#"> Twitter</a>
-                        </PartialFooterLink>
-                        <PartialFooterLink>
-                            <a href="#"> Instagram</a>
-                        </PartialFooterLink>
-                        <PartialFooterLink>
-                            <a href="#"> Youtube</a>
-                        </PartialFooterLink>
-                    </PartialFooterSub>
-                    <PartialFooterSub>
-                        <PartialFooterSubHeader>
+                        </Text>
+                        <ATag>
+                            Facebook
+                        </ATag>
+                        <ATag>
+                            Twitter
+                        </ATag>
+                        <ATag>
+                            Instagram
+                        </ATag>
+                        <ATag>
+                            Youtube
+                        </ATag>
+                    </FlexDirection>
+                    <FlexDirection flexDirection="column" margin="auto 0" gap="15px">
+                        <Text textTransform="uppercase" fontWeight="600" fontSize="16px" color="#313131">
                             Subscribe
-                        </PartialFooterSubHeader>
-                        <PartialFooterLink>
-                            <div>Get E-mail updates about our lates show <br/>and special offers.</div>
-                        </PartialFooterLink>
-                        <br />
+                        </Text>
+                        <Text>
+                            Get E-mail updates about our latest show <br /> and special offers.
+                        </Text>
                         <PartialFooterInput />
-                        <hr />
-                        <PartialFooterLink>
-                            <a href="#"> SUBSCRIBE</a>
-                        </PartialFooterLink>
-                    </PartialFooterSub>
+                        <BorderBottom />
+                        <ATag>
+                            SUBSCRIBE
+                        </ATag>
+                    </FlexDirection>
                 </SpaceBetween>
             </Container>
         </PartialFooter>
