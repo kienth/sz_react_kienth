@@ -1,17 +1,18 @@
-import { DailyDealsContainer, ProductTabList, SectionTitle, TabContent } from './Home.style';
+import { ATag, Container, Center } from '../App.style';
+import {SectionTitle} from './Home.style';
 
 const DailyDeals = () => {
     return (
-        <DailyDealsContainer>
+        <Container>
             <SectionTitle>
                 <h1>DAILY DEALS!</h1>
             </SectionTitle>
-            <ProductTabList>
-                <a href="#"><h3>New Arrivals</h3></a>
-                <a href="#"><h3>Best Sellers</h3></a>
-                <a href="#"><h3>Sale Items</h3></a>
-            </ProductTabList>
-        </DailyDealsContainer>
+            <Center>
+                <ATag size="18px" padding="0 10px" default>New Arrivals</ATag>
+                <ATag size="18px" padding="0 10px" default color='black'>Best Sellers</ATag>
+                <ATag size="18px" padding="0 10px" default>Sale Items</ATag>
+            </Center>
+        </Container>
     );
 }
  

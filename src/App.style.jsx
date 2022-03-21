@@ -2,15 +2,25 @@ import styled from 'styled-components';
 
 // Grid
 export const Container = styled.div`
-    max-width: 90%;
+    max-width: ${props => props.maxWidth || "90%"};
+    padding: ${props => props.padding || "auto"};
     margin: 0 auto;
+    background-color: ${props => props.backgroundColor || ""};;
 `;
 
 // Flex
 export const SpaceBetween = styled.div`
     margin: 7px 0;
+    padding: ${props => props.padding || "auto"};
     display: flex;
     justify-content: space-between;
+`;
+
+export const Center = styled.div`
+    margin: ${props => props.margin || "auto"};
+    padding: ${props => props.padding || "auto"};
+    display: flex;
+    justify-content: center;
 `;
 
 export const FlexEnd = styled.div`
@@ -46,9 +56,11 @@ export const BorderVertical = styled.div`
 
 // Other Default
 export const ATag = styled.a`
-    font-size: 14px;
-    color: #555252;
-    font-weight: 400;
+    font-size: ${props => props.size || "14px"};
+    font-weight: ${props => props.weight || "400"};
+    color: ${props => props.color || ""};
+    margin: ${props => props.margin || ""};
+    padding: ${props => props.padding || "auto"};
     &:hover {
         color: ${props => props.default ? "black" : "#AF49FF"};
     }
@@ -60,5 +72,18 @@ export const Text = styled.p`
     margin: ${props => props.margin || "0"};
     text-transform: ${props => props.textTransform || "none"};
     font-weight: ${props => props.fontWeight || ""};
+`;
+
+export const H1 = styled.h1`
+    font-weight: 400;
+    color: ${props => props.color || ""};
+    font-size: 72px;
+    line-height: 20px;
+`;
+
+export const H3 = styled.h3`
+    font-weight: 400;
+    color: ${props => props.color || ""};
+    font-size: 24px;
 `;
 
