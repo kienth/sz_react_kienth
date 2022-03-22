@@ -32,6 +32,7 @@ export const DailyDealsContainer = styled.div`
 
 export const SectionTitle = styled.div`
     display: flex;
+    margin-top: 50px;
     justify-content: center;
     h1 {
         font-size: 2rem;

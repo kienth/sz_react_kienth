@@ -3,17 +3,19 @@ import styled from 'styled-components';
 // Grid
 export const Container = styled.div`
     max-width: ${props => props.maxWidth || "90%"};
+    width: ${props => props.width || ""};
     padding: ${props => props.padding || "auto"};
-    margin: 0 auto;
-    background-color: ${props => props.backgroundColor || ""};;
+    margin: ${props => props.margin || "0 auto"};
+    background-color: ${props => props.backgroundColor || ""};
 `;
 
 // Flex
 export const SpaceBetween = styled.div`
-    margin: 7px 0;
+    margin: ${props => props.margin || "7px 0"};
     padding: ${props => props.padding || "auto"};
     display: flex;
     justify-content: space-between;
+    width: ${props => props.width || "auto"};
 `;
 
 export const Center = styled.div`
@@ -21,6 +23,7 @@ export const Center = styled.div`
     padding: ${props => props.padding || "auto"};
     display: flex;
     justify-content: center;
+    background-color: ${props => props.backgroundColor || ""};
 `;
 
 export const FlexEnd = styled.div`
@@ -56,6 +59,7 @@ export const BorderVertical = styled.div`
 
 // Other Default
 export const ATag = styled.a`
+    cursor: pointer;
     font-size: ${props => props.size || "14px"};
     font-weight: ${props => props.weight || "400"};
     color: ${props => props.color || ""};
@@ -63,6 +67,7 @@ export const ATag = styled.a`
     padding: ${props => props.padding || "auto"};
     &:hover {
         color: ${props => props.default ? "black" : "#AF49FF"};
+
     }
 `;
 
