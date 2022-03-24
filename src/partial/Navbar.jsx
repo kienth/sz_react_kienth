@@ -7,6 +7,8 @@ import PersonSharpIcon from '@mui/icons-material/PersonSharp';
 import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
 import LocalMallSharpIcon from '@mui/icons-material/LocalMallSharp';
 import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
+import Badge from '@mui/material/Badge';
+import { useSelector } from 'react-redux'
 
 const NavigationLink = styled(ATag)`
     margin: 0 15px;
@@ -14,6 +16,18 @@ const NavigationLink = styled(ATag)`
 
 const NavigationIcon = styled(ATag)`
     margin: 0 5px;
+    flex-direction: column;
+    display: flex;
+`;
+
+const TrueNavigationIcon = styled(Link)`
+    text-decoration: none;
+    margin: 0 5px;
+    flex-direction: column;
+    display: flex;
+    &:hover {
+        color: ${props => props.default ? "black" : "#AF49FF"};
+    }
 `;
 
 const TrueNavigationLink = styled(Link)`
@@ -25,6 +39,8 @@ const TrueNavigationLink = styled(Link)`
 `;
 
 const Navbar = () => {
+    const count = useSelector((state) => state.counter.value)
+
     return (
         <Container>
             <PartialNavbar>
@@ -34,16 +50,18 @@ const Navbar = () => {
                         <NavigationLink>Home <KeyboardArrowDownSharpIcon sx={{ fontSize: 16 }}/></NavigationLink> 
                         <NavigationLink>Shop <KeyboardArrowDownSharpIcon sx={{ fontSize: 16 }}/></NavigationLink> 
                         <NavigationLink>Collection </NavigationLink> 
-                        <NavigationLink>Pages <KeyboardArrowDownSharpIcon sx={{ fontSize: 16 }}/></NavigationLink> 
+                        <TrueNavigationLink to="/test">Pages <KeyboardArrowDownSharpIcon sx={{ fontSize: 16 }}/></TrueNavigationLink> 
                         <NavigationLink>Blog <KeyboardArrowDownSharpIcon sx={{ fontSize: 16 }}/></NavigationLink> 
                         <NavigationLink>About </NavigationLink> 
-                        <TrueNavigationLink to="/contact">Contact</TrueNavigationLink>
+                        <NavigationLink>Contact </NavigationLink> 
                     </SpaceBetween>
                     <SpaceBetween>
                         <NavigationIcon><SearchSharpIcon /></NavigationIcon>
                         <NavigationIcon><PersonSharpIcon /></NavigationIcon>
                         <NavigationIcon><FavoriteBorderSharpIcon /></NavigationIcon>
-                        <NavigationIcon><LocalMallSharpIcon /></NavigationIcon>
+                        <TrueNavigationIcon to="/cart">
+                            <Badge badgeContent={count} color="secondary"><LocalMallSharpIcon /></Badge>
+                        </TrueNavigationIcon>
                     </SpaceBetween>
                 </SpaceBetween>
             </PartialNavbar>

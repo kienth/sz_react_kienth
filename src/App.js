@@ -2,9 +2,10 @@ import Navbar from './partial/Navbar';
 import UpperNavbar from './partial/UpperNavbar';
 import Footer from './partial/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Contact from './contact/Contact';
+import Cart from './cart/Cart';
 import Home from './home/Home';
 import { BorderBottom } from './App.style';
+import { Counter } from './features/counter/Counter';
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/contact">
-            <Contact />
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/test">
+            <Counter />
           </Route>
         </Switch>
         <Footer />
