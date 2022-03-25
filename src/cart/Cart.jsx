@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
-import { ATag, Center, Container, H4, SpaceBetween, Table, TBody, Text, THead } from "../App.style";
+import { ATag, Center, Container, FlexDirection, H4, SpaceBetween, Table, TBody, Text, THead } from "../App.style";
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
-import { PartialFooterInput, InputQty } from "../partial/Partial.style";
+import { ButtonQty, InputQty } from "./Cart.style";
 
 const Cart = () => {
     const addToCartProduct = useSelector((state) => state.counter.cart)
+    // const [qty, setQty] = useState({});
 
     return (
         <Container backgroundColor="#F7F7F7" maxWidth="100%">
@@ -37,8 +38,11 @@ const Cart = () => {
                                 <Text>$260.00</Text>
                             </td>
                             <td>
-                                <InputQty />
-                                <PartialFooterInput />
+                                <FlexDirection>
+                                    <ButtonQty>-</ButtonQty>
+                                    <InputQty />
+                                    <ButtonQty>+</ButtonQty>
+                                </FlexDirection>
                             </td>
                             <td>
                                 <Text>$110.</Text>
