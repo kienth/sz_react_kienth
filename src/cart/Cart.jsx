@@ -1,6 +1,9 @@
-import { Center, Container, H4, Table, Text, THead } from "../App.style";
+import { useSelector } from "react-redux";
+import { Center, Container, H4, Table, TBody, Text, THead } from "../App.style";
 
-const Home = () => {
+const Cart = () => {
+    const addToCartProduct = useSelector((state) => state.counter.cart)
+    console.log(addToCartProduct);
     return (
         <Container backgroundColor="#F7F7F7" maxWidth="100%">
             <Center padding="35px 0">
@@ -18,10 +21,21 @@ const Home = () => {
                             <th>action</th>
                         </tr>
                     </THead>
+                    <TBody>
+
+                    </TBody>
                 </Table>
+            </Container>
+            <Container>
+                {addToCartProduct.map((item) => (
+                    <Container key={item.id}>
+                        <img src={item.image} alt="" />
+                        <h3>{item.price}</h3>
+                    </Container>
+                ))}
             </Container>
         </Container>
     );
 }
  
-export default Home;
+export default Cart;

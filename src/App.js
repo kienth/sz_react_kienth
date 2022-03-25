@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Cart from './cart/Cart';
 import Home from './home/Home';
 import { BorderBottom } from './App.style';
-import { Counter } from './features/counter/Counter';
 
 function App() {
   return (
@@ -20,9 +19,6 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
-          </Route>
-          <Route path="/test">
-            <Counter />
           </Route>
         </Switch>
         <Footer />

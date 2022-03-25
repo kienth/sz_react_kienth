@@ -6,6 +6,7 @@ export const PartialNavbar = styled.div`
 `;
 
 export const PartialFooter = styled.div`
+    margin-top: 10%;
     padding: 7% 0;
     background-color: #F6F6F8;
 `;

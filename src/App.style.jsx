@@ -102,17 +102,15 @@ export const THead = styled.thead`
 `;
 
 export const TBody = styled.tbody`
-    & tbody {
-        display: table-row-group;
-    }
-    & tbody tr {
+    display: table-row-group;
+    & tr {
         color: inherit;
         display: table-row;
         vertical-align: middle;
         outline: 0;
     }
 
-    & tbody tr td {
+    & tr td {
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         font-weight: 400;
         font-size: 0.875rem;
@@ -126,7 +124,7 @@ export const TBody = styled.tbody`
         color: rgba(0, 0, 0, 0.87);
     }
 
-    & tbody img {
+    & img {
         width: 100px;
         height: 100px;
         object-fit: cover;
