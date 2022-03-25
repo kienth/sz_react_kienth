@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
-import { Center, Container, H4, Table, TBody, Text, THead } from "../App.style";
+import { ATag, Center, Container, H4, SpaceBetween, Table, TBody, Text, THead } from "../App.style";
+import EditIcon from '@mui/icons-material/Edit';
+import CloseIcon from '@mui/icons-material/Close';
+import { PartialFooterInput, InputQty } from "../partial/Partial.style";
 
 const Cart = () => {
     const addToCartProduct = useSelector((state) => state.counter.cart)
-    console.log(addToCartProduct);
+
     return (
         <Container backgroundColor="#F7F7F7" maxWidth="100%">
             <Center padding="35px 0">
@@ -14,15 +17,39 @@ const Cart = () => {
                 <Table>
                     <THead>
                         <tr>
+                            <th>Image</th>
                             <th>Product Name</th>
-                            <th>Image</th><th>Until Price</th>
+                            <th>Until Price</th>
                             <th>Qty</th>
                             <th>Subtotal</th>
                             <th>action</th>
                         </tr>
                     </THead>
                     <TBody>
-
+                        <tr>
+                            <td>
+                                <ATag><img src="https://template.hasthemes.com/flone/flone/assets/img/cart/cart-1.png" alt="" /></ATag>
+                            </td>
+                            <td>
+                                <ATag>Product Name</ATag>
+                            </td>
+                            <td>
+                                <Text>$260.00</Text>
+                            </td>
+                            <td>
+                                <InputQty />
+                                <PartialFooterInput />
+                            </td>
+                            <td>
+                                <Text>$110.</Text>
+                            </td>
+                            <td>
+                                <Center margin="10%">
+                                    <EditIcon sx={{ margin: '0 10px' }}/>
+                                    <CloseIcon sx={{ margin: '0 10px' }}/>
+                                </Center>
+                            </td>
+                        </tr>
                     </TBody>
                 </Table>
             </Container>

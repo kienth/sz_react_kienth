@@ -107,6 +107,7 @@ export const TBody = styled.tbody`
         color: inherit;
         display: table-row;
         vertical-align: middle;
+        text-align: center;
         outline: 0;
     }
 
@@ -119,7 +120,7 @@ export const TBody = styled.tbody`
         display: table-cell;
         vertical-align: inherit;
         border-bottom: 1px solid rgba(224, 224, 224, 1);
-        text-align: left;
+        text-align: center;
         padding: 16px;
         color: rgba(0, 0, 0, 0.87);
     }
