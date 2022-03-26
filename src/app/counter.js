@@ -15,7 +15,7 @@ export const counterSlice = createSlice({
           item.id == id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
       );
     },
-    
+
     decrement: (state, action) => {
       let id = action.payload.id; 
       state.cart = state.cart.map((item) =>
@@ -28,7 +28,16 @@ export const counterSlice = createSlice({
     },
 
     addToCart: (state, action) => {
-      state.cart = [...state.cart, action.payload]
+      let newItem = action.payload;
+      var exist = state.cart.find((cart) => cart.id === newItem.id);
+      if(exist){
+        state.cart = state.cart.map((item) =>
+          item.id == newItem.id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
+        );
+      }else{
+        state.cart = [...state.cart, action.payload]
+      }
+      
     },
 
     removeToCart: (state, action) => {
