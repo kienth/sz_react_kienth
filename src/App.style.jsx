@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // Grid
 export const Container = styled.div`
-    max-width: ${props => props.maxWidth || "90%"};
+    max-width: ${props => props.maxWidth || "1200px"};
     width: ${props => props.width || ""};
     flex-wrap: ${props => props.flexWrap || ""};
     display: ${props => props.display || ""};
@@ -136,8 +136,8 @@ export const TBody = styled.tbody`
 // Other Default
 export const ATag = styled.a`
     cursor: pointer;
-    font-size: ${props => props.size || "14px"};
-    font-weight: ${props => props.weight || "400"};
+    font-size: ${props => props.size || "16px"};
+    font-weight: ${props => props.fontWeight || "400"};
     color: ${props => props.color || ""};
     margin: ${props => props.margin || ""};
     padding: ${props => props.padding || "auto"};

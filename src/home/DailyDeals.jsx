@@ -9,31 +9,43 @@ const DailyDeals = () => {
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-1.jpg",
             price: 60,
+            qty: 1,
+            subtotal: 60,
             id: 1
         },
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-2.jpg",
             price: 40,
+            qty: 1,
+            subtotal: 40,
             id: 2
         },
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-3.jpg",
             price: 70,
+            qty: 1,
+            subtotal: 70,
             id: 3
         },
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-4.jpg",
             price: 30,
+            qty: 1,
+            subtotal: 30,
             id: 4
         },
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-5.jpg",
             price: 80,
+            qty: 1,
+            subtotal: 80,
             id: 5
         },
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-6.jpg",
             price: 50,
+            qty: 1,
+            subtotal: 50,
             id: 6
         },
     ])

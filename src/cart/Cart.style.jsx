@@ -1,8 +1,15 @@
 import styled from 'styled-components'
 
+export const ActionButton = styled.div`
+display: inline-block;
+    height: 40px;
+    padding: 0;
+    position: relative;
+    width: 110px;
+    `;
+
 export const InputQty = styled.input.attrs({
     type: 'number',
-    defaultValue: 1
 })`
     color: #333;
     float: left;
@@ -28,8 +35,4 @@ export const ButtonQty = styled.div`
     transition: all 0.3s ease 0s;
     width: 20px;
     text-align: center;
-    vertical-align: center;
-    height: 33px;
-    border-right: 1px solid #e5e5e5;
-    padding-top: 8px;
 `;
