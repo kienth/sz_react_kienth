@@ -11,6 +11,7 @@ export const counterSlice = createSlice({
   reducers: {
     increment: (state, action) => {
       let id = action.payload.id;
+      let total = state.value;
       state.cart = state.cart.map((item) =>
           item.id == id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
       );
@@ -43,11 +44,15 @@ export const counterSlice = createSlice({
     removeToCart: (state, action) => {
       let id = action.payload.id;
       state.cart = state.cart.filter((item) => item.id !== id);
+    },
+
+    emptyCart: (state) => {
+      state.cart = [];
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, addToCart, removeToCart } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, addToCart, removeToCart, emptyCart } = counterSlice.actions
 
 export default counterSlice.reducer

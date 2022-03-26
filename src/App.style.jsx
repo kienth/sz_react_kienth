@@ -39,6 +39,7 @@ export const FlexDirection = styled.div`
     gap: ${props => props.gap || "0"};
     flex-direction: ${props => props.flexDirection || "row"};
     margin: ${props => props.margin || "auto"};
+    background-color: ${props => props.backgroundColor || ""};
 `;
 
 export const FlexWrap = styled.div`
