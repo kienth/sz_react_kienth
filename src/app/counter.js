@@ -50,6 +50,7 @@ export const counterSlice = createSlice({
         state.cart.push(action.payload);
       },
       prepare: (value) => {
+        console.log(value);
         return {
           payload: {
             ...value,

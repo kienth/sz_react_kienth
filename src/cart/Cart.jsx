@@ -24,7 +24,7 @@ const DecrementButton = styled(ButtonQty)`
     top: 0;
     `;
 
-const CartButton = styled(ATag)`
+const CartButton = styled.div`
     background-color: #f2f2f2;
     border-radius: 50px;
     color: #363f4d;
@@ -78,7 +78,6 @@ const Cart = () => {
     const dispatch          = useDispatch()
 
     const addToCartProduct  = useSelector((state) => state.counter.cart)
-    const count             = useSelector((state) => state.counter.value)
     
     const total             = addToCartProduct.reduce((total, currentValue) => total = total + currentValue.subtotal,0);
     return (
