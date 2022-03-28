@@ -1,10 +1,11 @@
 import { ATag, Container, Center, SpaceBetween, FlexDirection, Text } from '../App.style';
-import { addToCart } from '../app/counter'
+import { addToCart } from '../app/counter';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 
 const ProductList = ({products}) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
     return ( 
         <Container display="flex" flexWrap="wrap" margin="0">
             {products.map((product) => (

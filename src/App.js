@@ -14,12 +14,8 @@ function App() {
         <BorderBottom />
         <Navbar />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
+          <Route exact path="/"><Home /></Route>
+          <Route path="/cart"><Cart /></Route>
         </Switch>
         <Footer />
       </div>

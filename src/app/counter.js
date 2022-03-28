@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 0,
@@ -13,14 +13,14 @@ export const counterSlice = createSlice({
       let id = action.payload.id;
       let total = state.value;
       state.cart = state.cart.map((item) =>
-          item.id == id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
+          item.cartid == id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
       );
     },
 
     decrement: (state, action) => {
       let id = action.payload.id; 
       state.cart = state.cart.map((item) =>
-          item.id == id && item.qty > 1 ? { ...item, qty: item.qty -= 1, subtotal: item.qty * item.price } : item
+          item.cartid == id && item.qty > 1 ? { ...item, qty: item.qty -= 1, subtotal: item.qty * item.price } : item
       );
     },
 
@@ -28,22 +28,40 @@ export const counterSlice = createSlice({
       state.value += action.payload
     },
 
-    addToCart: (state, action) => {
-      let newItem = action.payload;
-      var exist = state.cart.find((cart) => cart.id === newItem.id);
-      if(exist){
-        state.cart = state.cart.map((item) =>
-          item.id == newItem.id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
-        );
-      }else{
-        state.cart = [...state.cart, action.payload]
-      }
+    setProductsList: (state, action) => {
+      state.products = action.payload;
+    },
+
+    // addToCart: (state, action) => {
+    //   let newItem = action.payload;
+    //   var exist = state.cart.find((cart) => cart.id === newItem.id);
+    //   console.log(state.cart.length+1);
+    //   if(exist){
+    //     state.cart = state.cart.map((item) =>
+    //       item.id == newItem.id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
+    //     );
+    //   }else{
+    //     state.cart = [...state.cart, action.payload]
+    //   }
       
+    // },
+    addToCart: {
+      reducer: (state, action) => {
+        state.cart.push(action.payload);
+      },
+      prepare: (value) => {
+        return {
+          payload: {
+            ...value,
+            cartid: nanoid()
+          }
+        }
+      }
     },
 
     removeToCart: (state, action) => {
       let id = action.payload.id;
-      state.cart = state.cart.filter((item) => item.id !== id);
+      state.cart = state.cart.filter((item) => item.cartid !== id);
     },
 
     emptyCart: (state) => {
@@ -53,6 +71,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, addToCart, removeToCart, emptyCart } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, setProductsList, addToCart, removeToCart, emptyCart } = counterSlice.actions
 
 export default counterSlice.reducer

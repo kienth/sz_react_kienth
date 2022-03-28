@@ -81,7 +81,6 @@ const Cart = () => {
     const count             = useSelector((state) => state.counter.value)
     
     const total             = addToCartProduct.reduce((total, currentValue) => total = total + currentValue.subtotal,0);
-    console.log(total);
     return (
         <Container maxWidth="100%">
             <Container backgroundColor="#F7F7F7" maxWidth="100%">
@@ -105,7 +104,7 @@ const Cart = () => {
                     <TBody>
                         {addToCartProduct.map((item) => (
 
-                            <tr key={item.id}>
+                            <tr key={item.cartid}>
                                 <td>
                                     <ATag><img src={item.image} alt="" /></ATag>
                                 </td>
@@ -117,9 +116,9 @@ const Cart = () => {
                                 </td>
                                 <td>
                                     <ActionButton>
-                                        <DecrementButton onClick={() => dispatch(decrement({id:item.id}))}>-</DecrementButton>
+                                        <DecrementButton onClick={() => dispatch(decrement({id:item.cartid}))}>-</DecrementButton>
                                         <InputQty value={item.qty} readOnly/>
-                                        <IncrementButton onClick={() => dispatch(increment({id:item.id}))}>+</IncrementButton>
+                                        <IncrementButton onClick={() => dispatch(increment({id:item.cartid}))}>+</IncrementButton>
                                     </ActionButton>
                                 </td>
                                 <td>
@@ -128,7 +127,7 @@ const Cart = () => {
                                 <td>
                                     <Center margin="10%">
                                         <ATag><EditIcon sx={{ margin: '0 10px' }}/></ATag>
-                                        <ATag><CloseIcon onClick={() => dispatch(removeToCart({id:item.id}))} sx={{ margin: '0 10px' }}/></ATag>
+                                        <ATag><CloseIcon onClick={() => dispatch(removeToCart({id:item.cartid}))} sx={{ margin: '0 10px' }}/></ATag>
                                     </Center>
                                 </td>
                             </tr>

@@ -1,10 +1,13 @@
 import { ATag, Container, Center } from '../App.style';
 import { SectionTitle } from './Home.style';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProductList from './ProductList';
+import { useDispatch } from 'react-redux';
+import { setProductsList } from '../app/counter';
 
 const DailyDeals = () => {
+    const dispatch = useDispatch();
     const [products, setProducts] = useState([
         { 
             image: "https://template.hasthemes.com/flone/flone/assets/img/product/hm10-pro-1.jpg",
@@ -49,6 +52,10 @@ const DailyDeals = () => {
             id: 6
         },
     ])
+
+    useEffect(() => {
+        dispatch(setProductsList(products))
+      }, [products])
     
     return (
         <Container>
