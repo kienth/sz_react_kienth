@@ -155,7 +155,7 @@ const Cart = () => {
                 <FlexEnd>
                     <SpaceBetween width="20%">
                         <H4>Cart Total:</H4>
-                        <H4>{total}</H4>
+                        <H4>${total}.00</H4>
                     </SpaceBetween>
                 </FlexEnd>
                 
