@@ -93,6 +93,10 @@ const ProductActionA = styled.a`
     &:hover {
         background-color: #fa6bff;
     }
+
+     * {
+        color: white;
+    }
 `;
 
 const ProductList = ({products}) => {
@@ -110,8 +114,8 @@ const ProductList = ({products}) => {
                                 </a>
                                 <ProductAction>
                                     <ProductActionA onClick={() => dispatch(addToCart(product))}><ShoppingCartOutlinedIcon color="disabled" sx={{ margin: 1 }}/></ProductActionA>
-                                    <ProductActionA><VisibilityOutlinedIcon color="disabled" sx={{ margin: 1 }}/></ProductActionA>
-                                    <ProductActionA><CompareArrowsOutlinedIcon color="disabled" sx={{ margin: 1 }}/></ProductActionA>
+                                    <ProductActionA><VisibilityOutlinedIcon style={{color: "white"}} sx={{ margin: 1 }}/></ProductActionA>
+                                    <ProductActionA><CompareArrowsOutlinedIcon style={{color: "white"}} sx={{ margin: 1 }}/></ProductActionA>
                                 </ProductAction>
                             </ProductImg>
                             <SpaceBetween margin="7px auto" width="100%" padding="15px 0">
