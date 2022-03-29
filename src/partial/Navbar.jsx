@@ -40,6 +40,8 @@ const TrueNavigationLink = styled(Link)`
 
 const Navbar = () => {
     const count = useSelector((state) => state.counter.cart)
+    const addToCartProduct  = useSelector((state) => state.counter.cart)
+    const total             = addToCartProduct.reduce((qty, currentValue) => qty = qty + currentValue.qty,0);
     return (
         <Container>
             <PartialNavbar>
@@ -59,7 +61,7 @@ const Navbar = () => {
                         <NavigationIcon><PersonSharpIcon /></NavigationIcon>
                         <NavigationIcon><FavoriteBorderSharpIcon /></NavigationIcon>
                         <TrueNavigationIcon to="/cart">
-                            <Badge badgeContent={count.length} color="secondary"><LocalMallSharpIcon /></Badge>
+                            <Badge badgeContent={total} color="secondary"><LocalMallSharpIcon /></Badge>
                         </TrueNavigationIcon>
                     </SpaceBetween>
                 </SpaceBetween>

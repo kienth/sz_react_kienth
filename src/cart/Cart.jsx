@@ -103,7 +103,7 @@ const Cart = () => {
                     <TBody>
                         {addToCartProduct.map((item) => (
 
-                            <tr key={item.cartid}>
+                            <tr key={item.id}>
                                 <td>
                                     <ATag><img src={item.image} alt="" /></ATag>
                                 </td>
@@ -115,9 +115,9 @@ const Cart = () => {
                                 </td>
                                 <td>
                                     <ActionButton>
-                                        <DecrementButton onClick={() => dispatch(decrement({id:item.cartid}))}>-</DecrementButton>
+                                        <DecrementButton onClick={() => dispatch(decrement({id:item.id}))}>-</DecrementButton>
                                         <InputQty value={item.qty} readOnly/>
-                                        <IncrementButton onClick={() => dispatch(increment({id:item.cartid}))}>+</IncrementButton>
+                                        <IncrementButton onClick={() => dispatch(increment({id:item.id}))}>+</IncrementButton>
                                     </ActionButton>
                                 </td>
                                 <td>
@@ -126,7 +126,7 @@ const Cart = () => {
                                 <td>
                                     <Center margin="10%">
                                         <ATag><EditIcon sx={{ margin: '0 10px' }}/></ATag>
-                                        <ATag><CloseIcon onClick={() => dispatch(removeToCart({id:item.cartid}))} sx={{ margin: '0 10px' }}/></ATag>
+                                        <ATag><CloseIcon onClick={() => dispatch(removeToCart({id:item.id}))} sx={{ margin: '0 10px' }}/></ATag>
                                     </Center>
                                 </td>
                             </tr>

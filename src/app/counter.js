@@ -13,14 +13,14 @@ export const counterSlice = createSlice({
       let id = action.payload.id;
       let total = state.value;
       state.cart = state.cart.map((item) =>
-          item.cartid == id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
+          item.id == id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
       );
     },
 
     decrement: (state, action) => {
       let id = action.payload.id; 
       state.cart = state.cart.map((item) =>
-          item.cartid == id && item.qty > 1 ? { ...item, qty: item.qty -= 1, subtotal: item.qty * item.price } : item
+          item.id == id && item.qty > 1 ? { ...item, qty: item.qty -= 1, subtotal: item.qty * item.price } : item
       );
     },
 
@@ -32,37 +32,37 @@ export const counterSlice = createSlice({
       state.products = action.payload;
     },
 
-    // addToCart: (state, action) => {
-    //   let newItem = action.payload;
-    //   var exist = state.cart.find((cart) => cart.id === newItem.id);
-    //   console.log(state.cart.length+1);
-    //   if(exist){
-    //     state.cart = state.cart.map((item) =>
-    //       item.id == newItem.id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
-    //     );
-    //   }else{
-    //     state.cart = [...state.cart, action.payload]
-    //   }
-      
-    // },
-    addToCart: {
-      reducer: (state, action) => {
-        state.cart.push(action.payload);
-      },
-      prepare: (value) => {
-        console.log(value);
-        return {
-          payload: {
-            ...value,
-            cartid: nanoid()
-          }
-        }
+    addToCart: (state, action) => {
+      let newItem = action.payload;
+      var exist = state.cart.find((cart) => cart.id === newItem.id);
+      console.log(state.cart.length+1);
+      if(exist){
+        state.cart = state.cart.map((item) =>
+          item.id == newItem.id ? { ...item, qty: item.qty += 1, subtotal: item.qty * item.price } : item
+        );
+      }else{
+        state.cart = [...state.cart, action.payload]
       }
+      
     },
+    // addToCart: {
+    //   reducer: (state, action) => {
+    //     state.cart.push(action.payload);
+    //   },
+    //   prepare: (value) => {
+    //     console.log(value);
+    //     return {
+    //       payload: {
+    //         ...value,
+    //         cartid: nanoid()
+    //       }
+    //     }
+    //   }
+    // },
 
     removeToCart: (state, action) => {
       let id = action.payload.id;
-      state.cart = state.cart.filter((item) => item.cartid !== id);
+      state.cart = state.cart.filter((item) => item.id !== id);
     },
 
     emptyCart: (state) => {
