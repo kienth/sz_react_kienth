@@ -57,9 +57,11 @@ const Navbar = () => {
                         <NavigationLink>Contact </NavigationLink> 
                     </SpaceBetween>
                     <SpaceBetween>
-                        <NavigationIcon><SearchSharpIcon /></NavigationIcon>
-                        <NavigationIcon><PersonSharpIcon /></NavigationIcon>
-                        <NavigationIcon><FavoriteBorderSharpIcon /></NavigationIcon>
+                        <TrueNavigationIcon to="/crud"><SearchSharpIcon /></TrueNavigationIcon>
+                        <TrueNavigationIcon to="/statetutorial"><PersonSharpIcon /></TrueNavigationIcon>
+                        <TrueNavigationIcon to="/table">
+                            <FavoriteBorderSharpIcon />
+                        </TrueNavigationIcon>
                         <TrueNavigationIcon to="/cart">
                             <Badge badgeContent={total} color="secondary"><LocalMallSharpIcon /></Badge>
                         </TrueNavigationIcon>
