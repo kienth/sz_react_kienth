@@ -14,6 +14,7 @@ const DailyDeals = () => {
             price: 60,
             qty: 1,
             subtotal: 60,
+            product_name: 'Product Name',
             id: 1
         },
         { 
@@ -21,6 +22,7 @@ const DailyDeals = () => {
             price: 40,
             qty: 1,
             subtotal: 40,
+            product_name: 'Product Name',
             id: 2
         },
         { 
@@ -28,6 +30,7 @@ const DailyDeals = () => {
             price: 70,
             qty: 1,
             subtotal: 70,
+            product_name: 'Product Name',
             id: 3
         },
         { 
@@ -35,6 +38,7 @@ const DailyDeals = () => {
             price: 30,
             qty: 1,
             subtotal: 30,
+            product_name: 'Product Name',
             id: 4
         },
         { 
@@ -42,6 +46,7 @@ const DailyDeals = () => {
             price: 80,
             qty: 1,
             subtotal: 80,
+            product_name: 'Product Name',
             id: 5
         },
         { 

@@ -24,3 +24,10 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.todo {
+  cursor: pointer;
+}
+.strike {
+  text-decoration: line-through;
+}
+

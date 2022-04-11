@@ -1,16 +1,24 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useLayoutEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useTable } from 'react-table'
-import MOCK_DATA from '../components/MOCK_DATA.json'
-import { COLUMNS } from '../components/columns'
+import { COLUMNS } from './columns'
 import '../components/table.css'
-import { useDispatch } from 'react-redux'
+import { todoListData, addToDo } from '../app/todo';
+import { Container } from '@mui/material';
 
-const BasicTable = () => {
+const CreateTable = () => {
+    const dispatch = useDispatch();
 
-    const columns = useMemo(() => COLUMNS, [])
-    const data = useMemo(() => MOCK_DATA, [])
+    const todo = useSelector((state) => (state.todo.todo))
+    
+    const columns = useMemo(() => COLUMNS, [todo])
+    const data = useMemo(() => todo, [todo])
+    
+    const [ userInput, setUserInput ] = useState('');
 
-    const dispatch = useDispatch()
+    useLayoutEffect(() => {
+        dispatch(todoListData(data))
+    }, [data])
 
     const { 
         getTableProps, 
@@ -24,7 +32,22 @@ const BasicTable = () => {
         data
     })
 
+    const handleChange = (e) => {
+        setUserInput(e.currentTarget.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addToDo({id: todo.length+1, task: userInput,  complete: false}))
+        setUserInput("");
+    }
+
     return (
+        <Container>
+        <form onSubmit={handleSubmit}>
+            <input value={userInput} type="text" onChange={handleChange} placeholder="Enter task..."/>
+            <button>Submit</button>
+        </form>
         <table {...getTableProps()}>
             <thead> 
                 {headerGroups.map((headerGroup) => (
@@ -71,7 +94,8 @@ const BasicTable = () => {
                 }
             </tfoot>
         </table>
+        </Container>
     );
 }
  
-export default BasicTable;
+export default CreateTable;

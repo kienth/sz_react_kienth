@@ -1,26 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 0,
-  todo: [],
+  // value: 0,
+  todo: [{
+    "id": 1,
+    "task": "Give dog a bath",
+    "complete": true
+  }, {
+    "id": 2,
+    "task": "Do laundry",
+    "complete": true
+  }, {
+    "id": 3,
+    "task": "Vacuum floor",
+    "complete": false
+  }],
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const todoSlice = createSlice({
+  name: 'todo',
   initialState,
   reducers: {
-    addToDo: (state, action) => {
-        state.todo = [...state.todo, action.payload]
+    todoListData: (state, action) => {
+      state.todo = action.payload;
+      // console.log(state.action);
     },
 
-    removeToDo: (state, action) => {
-      let id = action.payload.id;
-      state.todo = state.todo.filter((todo) => todo.id !== id);
+    addToDo: (state, action) => {
+      state.todo = [...state.todo, action.payload]
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToDo, removeToDo } = counterSlice.actions
+export const { addToDo, todoListData } = todoSlice.actions
 
-export default counterSlice.reducer
+export default todoSlice.reducer

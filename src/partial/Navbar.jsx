@@ -57,7 +57,7 @@ const Navbar = () => {
                         <NavigationLink>Contact </NavigationLink> 
                     </SpaceBetween>
                     <SpaceBetween>
-                        <TrueNavigationIcon to="/crud"><SearchSharpIcon /></TrueNavigationIcon>
+                        <TrueNavigationIcon to="/basictable"><SearchSharpIcon /></TrueNavigationIcon>
                         <TrueNavigationIcon to="/statetutorial"><PersonSharpIcon /></TrueNavigationIcon>
                         <TrueNavigationIcon to="/table">
                             <FavoriteBorderSharpIcon />
