@@ -2,7 +2,7 @@ import React, { useMemo, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useTable } from 'react-table'
 import '../components/table.css'
-import { todoListData, addToDo, removeToDo, completeToDo } from '../app/todo';
+import { todoListData, addToDo, removeToDo, completeToDo, isUpdate, updateToDo } from '../app/todo';
 import { Container } from '@mui/material';
 
 const CreateTable = () => {
@@ -10,6 +10,19 @@ const CreateTable = () => {
     const dispatch = useDispatch();
     const todo = useSelector((state) => (state.todo.todo))
     const value = useSelector((state) => (state.todo.value))
+
+    const [ buttonName, setButtonName ] = useState('Add');
+    const [ userInput, setUserInput ] = useState('');
+    const [ updateId, setUpdateId] = useState(0);
+
+    const updateFunction = (e) => {
+        let id = e.target.getAttribute('id');
+        let task = e.target.getAttribute('task');
+        let buttonName = e.target.getAttribute('buttonName');
+        setUpdateId(id);
+        setButtonName(buttonName);
+        setUserInput(buttonName === 'Add' ? '' : task);
+    }
 
     const COLUMNS = [
         {
@@ -21,26 +34,23 @@ const CreateTable = () => {
         {
             Header: 'Todo List',
             Footer: 'Todo List',
-            accessor: 'task',
+            accessor: 'task'
         },
         {
             Header: 'Status',
             Footer: 'Status',
             accessor: props => (props.complete === true ? 'Completed' : <button onClick={() => dispatch(completeToDo({id:props.id}))}>Done</button>),
-            // Cell: props => (props.row.values.complete === true ? 'Completed' : <button onClick={() => dispatch(completeToDo({id:props.row.values.id}))}>Done</button>),    
         },
         {
             Header: 'Action',
             Footer: 'Action',
             accessor: 'action',
-            Cell: props => <button onClick={() => dispatch(removeToDo({id:props.row.values.id}))}>Delete</button>,
+            Cell: props => (<><button id={props.row.values.id} task={props.row.values.task} buttonName="Update" onClick={updateFunction}>Update</button> <button onClick={() => dispatch(removeToDo({id:props.row.values.id}))}>Delete</button></>),
         },
     ]
     
     const columns = useMemo(() => COLUMNS, [todo])
     const data = useMemo(() => todo, [todo])
-    
-    const [ userInput, setUserInput ] = useState('');
 
     useLayoutEffect(() => {
         dispatch(todoListData(data))
@@ -63,16 +73,27 @@ const CreateTable = () => {
     }
 
     const handleSubmit = (e) => {
+        let transaction = e.target.getAttribute('transaction');
         e.preventDefault();
-        dispatch(addToDo({id: value, task: userInput,  complete: false}))
+        if(transaction === 'Add') {
+            console.log('add');
+            console.log(value);
+            console.log(userInput);
+        }else{
+            console.log('update');
+            console.log(value);
+            console.log(userInput);
+        }
+        dispatch(transaction === 'Add' ? addToDo({id: value, task: userInput, complete: false}) : updateToDo({id: updateId, task: userInput, complete: false}))
         setUserInput("");
+        setButtonName('Add');
     }
 
     return (
         <Container>
-        <form onSubmit={handleSubmit}>
-            <input value={userInput} type="text" onChange={handleChange} placeholder="Enter task..."/>
-            <button>Submit</button>
+        <form transaction={buttonName} onSubmit={handleSubmit}>
+            <input value={userInput} type="text" onChange={handleChange} placeholder="Enter task..."/> 
+            <button>{buttonName}</button> {buttonName == 'Update' ? <button onClick={updateFunction} buttonName="Add">Cancel</button> : ''}
         </form>
         <table {...getTableProps()}>
             <thead> 

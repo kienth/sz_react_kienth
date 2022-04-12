@@ -41,10 +41,25 @@ export const todoSlice = createSlice({
           item.id == id ? { ...item, complete: true, } : item
       );
     },
+
+    isUpdate: (state, action) => {
+      let id = action.payload.id;
+      state.todo = state.todo.map((item) =>
+          item.id == id ? { ...item, isUpdate: true} : item
+      );
+    },
+
+    updateToDo: (state, action) => {
+      let id = action.payload.id;
+      let updatetask = action.payload.task;
+      state.todo = state.todo.map((item) => {
+        return item.id == id ? { ...item, isUpdate: false, task: updatetask } : item}
+      );
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToDo, todoListData, removeToDo, completeToDo } = todoSlice.actions
+export const { addToDo, todoListData, removeToDo, completeToDo, isUpdate, updateToDo } = todoSlice.actions
 
 export default todoSlice.reducer
