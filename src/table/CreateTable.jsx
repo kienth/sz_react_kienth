@@ -1,15 +1,46 @@
 import React, { useMemo, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useTable } from 'react-table'
-import { COLUMNS } from './columns'
+// import { COLUMNS } from './columns'
 import '../components/table.css'
-import { todoListData, addToDo } from '../app/todo';
+import { todoListData, addToDo, removeToDo } from '../app/todo';
 import { Container } from '@mui/material';
 
-const CreateTable = () => {
-    const dispatch = useDispatch();
+export const todoDone = (id) => {
+    console.log(id);
+}
 
+
+
+const CreateTable = () => {
+
+    const dispatch = useDispatch();
     const todo = useSelector((state) => (state.todo.todo))
+
+    const COLUMNS = [
+        {
+            Header: 'ID',
+            Footer: 'ID',
+            accessor: 'id',
+            disableFilters: true,
+        },
+        {
+            Header: 'Todo List',
+            Footer: 'Todo List',
+            accessor: 'task',
+        },
+        {
+            Header: 'Completed',
+            Footer: 'Completed',
+            accessor: d => (d.complete.toString() == 'true' ? 'Completed' : <button>Done</button>),    
+        },
+        {
+            Header: 'Action',
+            Footer: 'Action',
+            accessor: 'action',
+            Cell: props => <button onClick={() => dispatch(removeToDo({id:props.row.values.id}))}>Delete</button>,
+        },
+    ]
     
     const columns = useMemo(() => COLUMNS, [todo])
     const data = useMemo(() => todo, [todo])

@@ -29,10 +29,15 @@ export const todoSlice = createSlice({
     addToDo: (state, action) => {
       state.todo = [...state.todo, action.payload]
     },
+
+    removeToDo: (state, action) => {
+      let id = action.payload.id;
+      state.todo = state.todo.filter((item) => item.id !== id);
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToDo, todoListData } = todoSlice.actions
+export const { addToDo, todoListData, removeToDo } = todoSlice.actions
 
 export default todoSlice.reducer
