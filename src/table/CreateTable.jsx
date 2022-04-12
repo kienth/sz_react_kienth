@@ -1,21 +1,15 @@
 import React, { useMemo, useLayoutEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useTable } from 'react-table'
-// import { COLUMNS } from './columns'
 import '../components/table.css'
-import { todoListData, addToDo, removeToDo } from '../app/todo';
+import { todoListData, addToDo, removeToDo, completeToDo } from '../app/todo';
 import { Container } from '@mui/material';
-
-export const todoDone = (id) => {
-    console.log(id);
-}
-
-
 
 const CreateTable = () => {
 
     const dispatch = useDispatch();
     const todo = useSelector((state) => (state.todo.todo))
+    const value = useSelector((state) => (state.todo.value))
 
     const COLUMNS = [
         {
@@ -30,9 +24,10 @@ const CreateTable = () => {
             accessor: 'task',
         },
         {
-            Header: 'Completed',
-            Footer: 'Completed',
-            accessor: d => (d.complete.toString() == 'true' ? 'Completed' : <button>Done</button>),    
+            Header: 'Status',
+            Footer: 'Status',
+            accessor: props => (props.complete === true ? 'Completed' : <button onClick={() => dispatch(completeToDo({id:props.id}))}>Done</button>),
+            // Cell: props => (props.row.values.complete === true ? 'Completed' : <button onClick={() => dispatch(completeToDo({id:props.row.values.id}))}>Done</button>),    
         },
         {
             Header: 'Action',
@@ -69,7 +64,7 @@ const CreateTable = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addToDo({id: todo.length+1, task: userInput,  complete: false}))
+        dispatch(addToDo({id: value, task: userInput,  complete: false}))
         setUserInput("");
     }
 
