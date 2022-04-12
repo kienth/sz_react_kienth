@@ -7,7 +7,7 @@ import Home from './home/Home';
 import BasicTable from './components/BasicTable';
 // import CreateTable from './components/PaginationTable';
 import CreateTable from './table/CreateTable'
-import StateTutorial from './hooks/StateTutorial'
+import Login from './login/Login'
 import { BorderBottom } from './App.style';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/table" element={<CreateTable />} />
-          <Route path="/statetutorial" element={<StateTutorial />} />
+          <Route path="/login" element={<Login />} />
           <Route path='/basictable' element={<BasicTable />} />
         </Routes>
         <Footer />

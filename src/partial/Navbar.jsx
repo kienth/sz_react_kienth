@@ -58,7 +58,7 @@ const Navbar = () => {
                     </SpaceBetween>
                     <SpaceBetween>
                         <TrueNavigationIcon to="/basictable"><SearchSharpIcon /></TrueNavigationIcon>
-                        <TrueNavigationIcon to="/statetutorial"><PersonSharpIcon /></TrueNavigationIcon>
+                        <TrueNavigationIcon to="/login"><PersonSharpIcon /></TrueNavigationIcon>
                         <TrueNavigationIcon to="/table">
                             <FavoriteBorderSharpIcon />
                         </TrueNavigationIcon>
