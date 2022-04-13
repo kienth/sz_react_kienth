@@ -20,7 +20,7 @@ export const userSlice = createSlice({
         state.user_logged_in = null
     },
     register: (state, action) => {
-      state.user = action.payload
+      state.user = [...state.user, action.payload]
     },
     authentication: (state, action) => {
       let email = action.payload.email;
