@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container } from '../App.style';
-import { authentication } from '../app/userSlice';
+import { authentication, resetAll, errorMessage } from '../app/userSlice';
+import Error from './Error';
 import "./Login.style.css";
 
 const Login = () => {
@@ -11,6 +12,7 @@ const Login = () => {
     const [ password ,setPassword ] = useState("");
 
     const dispatch = useDispatch();
+    const isWrongPassword = useSelector((state) => (state.user.errorType));
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,22 +23,21 @@ const Login = () => {
                 loggedIn: true,
             }));
         }else{
-            alert('Please fill all fields');
+            dispatch(errorMessage('Empty Fields'));
         }
     }
 
     return (
         <Container>
             <div className="login">
+                <h1 className='login_header'>Login Here</h1>
+                {isWrongPassword ? <Error/> : null}
                 <form className='login__form' onSubmit={handleSubmit}>
-                    <h1>Login Here</h1>
-                    {/* {} */}
                     <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.currentTarget.value)}/>
                     <input type="password" placeholder='Passwrod' value={password} onChange={(e) => setPassword(e.currentTarget.value)}/>
                     <button type='submit' className='submit__btn'> Submit</button>
-                    <Link to="/register">Create New User</Link>
+                    <Link to="/register" onClick={(e) => dispatch(resetAll())}>Create New User</Link>
                 </form>
-
             </div>
         </Container>
     );

@@ -34,7 +34,7 @@
     flex-direction: column;
 }
 
-.login__form > h1 {
+.login_header {
     font-size: 35px;
     margin-bottom: 15px;
     padding-bottom: 10px;
@@ -60,5 +60,28 @@
     color: white;
     font-size: 14px;
     border-radius: 3px;
+    cursor: pointer;
+}
+
+.error__message {
+    padding: 17px 30px;
+    margin-top: 10px;
+    background: red;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    width: 338px;
+}
+
+.success__message {
+    padding: 17px 30px;
+    margin-top: 10px;
+    background: green;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    width: 338px;
 }
 
