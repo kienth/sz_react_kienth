@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Cart from './cart/Cart';
 import Home from './home/Home';
 import BasicTable from './components/BasicTable';
-// import CreateTable from './components/PaginationTable';
 import CreateTable from './table/CreateTable'
-import Login from './login/Login'
+import User from './login/User'
 import { BorderBottom } from './App.style';
+import Register from './login/Register';
 
 function App() {
   return (
@@ -21,8 +21,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/table" element={<CreateTable />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<User />} />
           <Route path='/basictable' element={<BasicTable />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
         <Footer />
       </div>
